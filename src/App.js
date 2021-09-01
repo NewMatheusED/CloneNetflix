@@ -3,6 +3,7 @@ import TMDB from './TMDB';
 import MovieRow from './components/movieRow';
 import './App.css';
 import FeatureMovie from './components/featureMovie';
+import Header from './components/header';
 
 export default function App() {
 
@@ -27,6 +28,8 @@ export default function App() {
 
   return (
     <div className='page'>
+
+      <Header /> 
 
 
       { featureData &&

@@ -29,7 +29,10 @@ export default function featureMovie({item}) {
                             <div className='feature--seasons'>{item.number_of_seasons} temporada{item.number_of_seasons !== 1 ? 's' : ''}</div>
                         </div>
                         <div className='feature--description'>{item.overview}</div>
-                        <div className='feature--buttons'></div>
+                        <div className='feature--buttons'>
+                            <a className='feature--watchBtn' href={`watch/${item.id}`}>Assistir</a>
+                            <a className='feature--listBtn' href={`list/add/${item.id}`}>+ Minha Lista</a>
+                        </div>
                         <div className='feature--genres'>Gêneros: {genres.join(', ')}</div>
                     </div>
                 </div>
