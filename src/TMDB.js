@@ -1,0 +1,88 @@
+const API_KEY = '751974dfd5ee874bc8215b321d95cdd3';
+const API_BASE = 'https://api.themoviedb.org/3';
+
+/* 
+    O que precisamos:
+
+    --Originais Netflix;
+    --Em alta;
+    --Recomendados;
+    --Ação;
+    --Comédia;
+    --Romance;
+    --Terror;
+    --Documentários;
+*/
+
+const basicFeatch = async (endpoint) => {
+    const req = await fetch(`${API_BASE}/${endpoint}`);
+    const json = await req.json();
+    return json;
+}
+
+// eslint-disable-next-line import/no-anonymous-default-export
+export default {
+    getHomeList: async () => {
+        return [
+            {
+                slug: 'Originais',
+                title: 'Originais Netflix',
+                itens: await basicFeatch(`discover/tv?with_network=213&language=pt-BR&api_key=${API_KEY}`)
+            },
+            {
+                slug: 'Recomendado',
+                title: 'Recomendados para você',
+                itens: await basicFeatch(`trending/all/week?language=pt-BR&api_key=${API_KEY}`)
+            },
+            {
+                slug: 'toprated',
+                title: 'Em alta',
+                itens: await basicFeatch(`movie/top_rated?language=pt-BR&api_key=${API_KEY}`)
+            },
+            {
+                slug: 'action',
+                title: 'Ação',
+                itens: await basicFeatch(`discover/movie?with_genres=28&language=pt-BR&api_key=${API_KEY}`)
+            },
+            {
+                slug: 'comedy',
+                title: 'Comédia',
+                itens: await basicFeatch(`discover/movie?with_genres=35&language=pt-BR&api_key=${API_KEY}`)
+            },
+            {
+                slug: 'horror',
+                title: 'Terror',
+                itens: await basicFeatch(`discover/movie?with_genres=27&language=pt-BR&api_key=${API_KEY}`)
+            },
+            {
+                slug: 'romance',
+                title: 'Romance',
+                itens: await basicFeatch(`discover/movie?with_genres=10749&language=pt-BR&api_key=${API_KEY}`)
+            },
+            {
+                slug: 'documentary',
+                title: 'Documentários',
+                itens: await basicFeatch(`discover/movie?with_genres=99&language=pt-BR&api_key=${API_KEY}`)
+            }
+        ];
+    },
+    getMovieInfo: async (movieId, type) => {
+        let info = {};
+
+            if(movieId) {
+                switch(type) {
+                    case 'movie':
+                        info = await basicFeatch(`movie/${movieId}?language=pt-BR&api_key=${API_KEY}`);
+                        break;
+                    case 'tv':
+                        info = await basicFeatch(`tv/${movieId}?language=pt-BR&api_key=${API_KEY}`);
+                        break;
+                    default:
+                        info = null;
+                        break;
+                }
+            }
+
+        return info;
+    }
+}
