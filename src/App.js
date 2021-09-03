@@ -9,6 +9,7 @@ export default function App() {
 
   const [movieList, setMovieList] = useState([]);
   const [featureData, setfeatureData] = useState([]);
+  const [blackHeader, setBlackheader] = useState(false);
 
   useEffect(() => {
     const loadAll = async () => {
@@ -26,10 +27,27 @@ export default function App() {
     loadAll();
   }, []);
 
+  useEffect(() => {
+    const scrollListener = () => {
+      if(window.scrollY > 10) {
+        setBlackheader(true);
+      }else{
+        setBlackheader(false);
+      } 
+    }
+
+    window.addEventListener('scroll', scrollListener);
+
+    //remover ao sair da página
+    return () => {
+      window.removeEventListener('scroll', scrollListener);
+    }
+  }, [])
+
   return (
     <div className='page'>
 
-      <Header /> 
+      <Header black={blackHeader}/> 
 
 
       { featureData &&
