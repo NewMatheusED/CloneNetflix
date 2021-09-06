@@ -6,13 +6,18 @@
     margin: 0 0 0 30px;
 }
 
+.movieRow--list {
+    transition: ease all .2s
+}
+
+.movieRow:hover .leftArrow,
+.movieRow:hover .rightArrow {
+    opacity: 1;
+}
+
 .movieRow--listarea {
     overflow-x: hidden;
     padding-left: 30px;
-}
-
-.movieRow--list {
-    width: 9999999999px;
 }
 
 .movieRow--item {
@@ -29,3 +34,25 @@
 .movieRow--item img:hover {
     transform: scale(1)
 } 
+
+.leftArrow,
+.rightArrow {
+    position: absolute;
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    height: 225px;
+    opacity: 0;
+    transition: all ease .2s;
+}
+
+.leftArrow {
+    left: 0;
+}
+
+.rightArrow {
+    right: 0;
+}
