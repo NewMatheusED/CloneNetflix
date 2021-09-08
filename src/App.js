@@ -4,7 +4,7 @@ import MovieRow from './components/movieRow';
 import './App.css';
 import FeatureMovie from './components/featureMovie';
 import Header from './components/header';
-import Preview from './components/preview';
+//import Preview from './components/preview';
 
 export default function App() {
 
