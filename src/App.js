@@ -70,10 +70,12 @@ export default function App() {
         ))}
       </section>
 
-      <div className='loading'>
-        <div className='icon'></div>
-        <div className='backdrop'></div>
-      </div>
+      {movieList <= 0 &&
+        <div className='loading'>
+          <div className='icon'></div>
+          <div className='backdrop'></div>
+        </div>
+      }
     </div>
   )
 }

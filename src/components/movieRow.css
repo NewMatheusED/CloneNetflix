@@ -56,3 +56,10 @@
 .rightArrow {
     right: 0;
 }
+
+@media screen and (max-width: 768px) {
+    .leftArrow, 
+    .rightArrow {
+        opacity: 1;
+    }
+}
