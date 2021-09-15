@@ -34,7 +34,7 @@ html,body {
     align-items: center;
     width: 100px;
     height: 100px;
-    background: linear-gradient(to left, red, transparent);
+    background: linear-gradient(to left, #eb1118, transparent);
     border-radius: 50%;
     animation: spin .5s infinite linear
 }
