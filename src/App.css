@@ -16,3 +16,46 @@ html,body {
 .lists {
     margin-top: -150px
 }
+
+.loading {
+    position: fixed;
+    inset: 0;
+    background-color: #000;
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(to left, red, transparent);
+    border-radius: 50%;
+    animation: spin .5s infinite linear
+}
+
+.backdrop {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 90px;
+    background-color: #000;
+    z-index: 9999999;
+    border-radius: 50%;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

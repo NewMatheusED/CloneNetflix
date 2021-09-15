@@ -69,6 +69,11 @@ export default function App() {
           </div>
         ))}
       </section>
+
+      <div className='loading'>
+        <div className='icon'></div>
+        <div className='backdrop'></div>
+      </div>
     </div>
   )
 }
